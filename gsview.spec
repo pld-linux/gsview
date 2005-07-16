@@ -1,5 +1,5 @@
-#
-Summary:	GSview is a graphical interface for Ghostscript.
+Summary:	GSview - a graphical interface for Ghostscript
+Summary(pl):	GSview - graficzny interfejs do Ghostscripta
 Name:		gsview
 Version:	4.7
 Release:	1
@@ -7,8 +7,9 @@ License:	Aladdin Free Public Licence (see LICENCE)
 Group:		Applications
 Source0:	ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/%{name}-%{version}.tar.gz
 # Source0-md5:	ce6288cc8597d6b918498d6d02654bb7
-URL:		http://www.cs.wisc.edu/~ghost/gsview
+URL:		http://www.cs.wisc.edu/~ghost/gsview/
 BuildRequires:	gtk+-devel
+BuildRequires:	sed >= 4.0
 Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -19,8 +20,15 @@ printers. For documents following the Adobe PostScript Document
 Structuring Conventions, GSview allows selected pages to be viewed or
 printed.
 
+%description -l pl
+GSview to graficzny interfejs do Ghostscripta. Ghostscript to
+interpreter jêzyka opisu strony PostScript u¿ywanego przez drukarki
+laserowe. Dla dokumentów zgodnych z konwencjami Adobe PostScript
+Document Structuring Conventions GSview umo¿liwia podgl±d i wydruk
+wybranych stron.
+
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %{__sed} -i -e 's/Terminal=.*/Terminal=false/g' \
 	srcunx/gvxdesk.txt
@@ -32,15 +40,14 @@ echo "Categories=Qt;KDE;Graphics;Viewer;" >> srcunx/gvxdesk.txt
 	CC="%{__cc}" \
 	RPM_OPT_FLAGS="%{rpmcflags}" \
 	CDEBUG="" 
-	
 
 %install
-# taken from spec frmo gsview, amazingly well designed spec it is
+# taken from spec from gsview, amazingly well designed spec it is
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir},%{_docdir},%{_sysconfdir}}
 install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
-make -f srcunx/unx.mak install \
+%{__make} -f srcunx/unx.mak install \
 	GSVIEW_BASE=$RPM_BUILD_ROOT%{_prefix}           \
 	GSVIEW_BINDIR=$RPM_BUILD_ROOT%{_bindir}         \
 	GSVIEW_MANDIR=$RPM_BUILD_ROOT%{_mandir}         \
@@ -54,12 +61,12 @@ install binary/gsview48.png  $RPM_BUILD_ROOT%{_pixmapsdir}/gsview.png
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
+%dir /etc/gsview
 %config(noreplace) %verify(not md5 mtime size) /etc/gsview/printer.ini
-%{_docdir}
+%{_docdir}/*
 %{_mandir}/man1/*.1*
 %{_desktopdir}/gsview.desktop
 %{_pixmapsdir}/gsview.png
