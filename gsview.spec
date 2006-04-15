@@ -1,12 +1,12 @@
 Summary:	GSview - a graphical interface for Ghostscript
 Summary(pl):	GSview - graficzny interfejs do Ghostscripta
 Name:		gsview
-Version:	4.7
+Version:	4.8
 Release:	1
 License:	Aladdin Free Public Licence (see LICENCE)
 Group:		Applications
 Source0:	ftp://mirror.cs.wisc.edu/pub/mirrors/ghost/ghostgum/%{name}-%{version}.tar.gz
-# Source0-md5:	ce6288cc8597d6b918498d6d02654bb7
+# Source0-md5:	21c81819af0eeb42ac5ee6499f4a7116
 URL:		http://www.cs.wisc.edu/~ghost/gsview/
 BuildRequires:	gtk+-devel
 BuildRequires:	sed >= 4.0
