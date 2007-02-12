@@ -1,5 +1,5 @@
 Summary:	GSview - a graphical interface for Ghostscript
-Summary(pl):	GSview - graficzny interfejs do Ghostscripta
+Summary(pl.UTF-8):   GSview - graficzny interfejs do Ghostscripta
 Name:		gsview
 Version:	4.8
 Release:	1
@@ -20,11 +20,11 @@ printers. For documents following the Adobe PostScript Document
 Structuring Conventions, GSview allows selected pages to be viewed or
 printed.
 
-%description -l pl
+%description -l pl.UTF-8
 GSview to graficzny interfejs do Ghostscripta. Ghostscript to
-interpreter jêzyka opisu strony PostScript u¿ywanego przez drukarki
-laserowe. Dla dokumentów zgodnych z konwencjami Adobe PostScript
-Document Structuring Conventions GSview umo¿liwia podgl±d i wydruk
+interpreter jÄ™zyka opisu strony PostScript uÅ¼ywanego przez drukarki
+laserowe. Dla dokumentÃ³w zgodnych z konwencjami Adobe PostScript
+Document Structuring Conventions GSview umoÅ¼liwia podglÄ…d i wydruk
 wybranych stron.
 
 %prep
