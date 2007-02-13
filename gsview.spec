@@ -1,5 +1,5 @@
 Summary:	GSview - a graphical interface for Ghostscript
-Summary(pl.UTF-8):   GSview - graficzny interfejs do Ghostscripta
+Summary(pl.UTF-8):	GSview - graficzny interfejs do Ghostscripta
 Name:		gsview
 Version:	4.8
 Release:	1
